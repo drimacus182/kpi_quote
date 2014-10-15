@@ -1,6 +1,7 @@
 @font-face { font-family: Exo2; src: url('../font/Exo2-Regular.ttf'); }
 @font-face { font-family: Exo2; font-weight: bold; src: url('../font/Exo2-Bold.ttf');}
-@font-face { font-family: Exo2; font-style: italic; src: url('../font/Exo2-SemiBoldItalic.ttf');}
+/*@font-face { font-family: Exo2; font-style: italic; src: url('../font/Exo2-SemiBoldItalic.ttf');}*/
+@font-face { font-family: Exo2; font-style: italic; src: url('../font/Exo2-SemiBold.ttf');}
 
 html, body {
     font-family: "Exo2", "Clear Sans", "Helvetica Neue", Arial, sans-serif;
@@ -52,7 +53,6 @@ h1 {
     background: none repeat scroll 0 0 #177cff;
     font-size: 30px;
     font-weight: bold;
-    line-height: 1.5;
     color: white;
 }
 
