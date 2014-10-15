@@ -3,7 +3,7 @@
     left: 0px;
     top: 0px;
 
-    height: 120px;
+    height: 100px;
 
     padding: 2px;
     /*border: 1px solid black;*/
@@ -38,6 +38,15 @@ div {
     height: 47px;
 
     /*border: 1px solid green;*/
+}
+
+#quote_font_buttons_container {
+    position: absolute;
+    top:5px;
+    left:770px;
+
+    width:24px;
+    height: 47px;
 }
 
 #input_left_div {
@@ -75,6 +84,11 @@ div {
     top: 27px;
 }
 
-#output_image {
-
+#quote_font_plus {
+    top: 1px;
 }
+
+#quote_font_minus {
+    top: 27px;
+}
+
