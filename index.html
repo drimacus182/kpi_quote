@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Kpi Quote Generator</title>
+</head>
+<body>
+
+<div id="main_container">
+    <h1>Генератор #КПИцитат</h1>
+    <div id="main_quote_container">
+        <div class="absolute_pos" id="quote_photo">
+            <p class="centered">
+                <img id="tutor_img" src="img/photo.png" title="Фото" alt="Фото"/>
+            </p>
+        </div>
+
+        <div id="zoom_buttons_container">
+            <input type="button" class="button zoom_button absolute_pos" id="img_minus" value="-"/>
+            <input type="button" class="button zoom_button absolute_pos" id="img_plus" value="+"/>
+        </div>
+
+
+        <div class="absolute_pos" id="quote_quote">
+            <p id="quote_quote_text" class="text_container">Текст цитати</p>
+        </div>
+
+
+        <div class="absolute_pos" id="quote_tutorname">
+            <p id="quote_tutorname_text" class="text_container">Ім'я викладача</p>
+        </div>
+
+
+        <div class="absolute_pos" id="quote_faculty">
+            <p id="quote_faculty_text" class="text_container">Факультет</p>
+        </div>
+
+    </div>
+
+    <div id="input_form">
+
+        <div id="input_left_div">
+            <p><input id="input_tutorname" type="text" placeholder="Ім'я викладача"></p>
+            <p><input id="input_faculty" type="text" placeholder="Факультет"></p>
+            <input type="file" class="display-none" id="input_img"/>
+            <!-- Style this button with type image or css whatever you wish -->
+            <input type="button" id="browse-click" class="button" value="Обрати фотографію"/>
+        </div>
+
+        <div id="input_right_div">
+            <textarea id="input_quote" placeholder="Текст цитати"></textarea></br>
+            <input type="button" class="button" id="input_button" value="Завантажити зображення" onclick="generateImage()"/>
+            <a id="image_download" class="display-none" href="#">result</a>
+        </div>
+    </div>
+</div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/handlers.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+
+</body>
+
+
+</html>
