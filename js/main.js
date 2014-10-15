@@ -80,8 +80,8 @@ function readURL(input) {
     if (input.files && input.files[0]) {
 
         var file = input.files[0];
-        if (file.size > 1024 * 200) {
-            alert("Розмір зображення має бути меншим за 1 Мб");
+        if (file.size > 5 * 1024 * 1024) {
+            alert("Розмір зображення має бути меншим за 5 Мб");
             return
         }
 
