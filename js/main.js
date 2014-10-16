@@ -60,10 +60,17 @@ $('#img_minus').click(onZoomMinus);
 
 
 function imageAutoScale() {
+    var img = $('#tutor_img');
+
+    img.css('left', '');
+    img.css('top', '');
+    img.css('width', '');
+    img.css('height', '');
+
     var desired_w = 300;
     var desired_h = 400;
-    var w = $('#tutor_img').width();
-    var h = $('#tutor_img').height();
+    var w = img.width();
+    var h = img.height();
 
     var x_scale = desired_w/w;
     var y_scale = desired_h/h;
@@ -72,8 +79,8 @@ function imageAutoScale() {
 
     if (scale>=1) return;
 
-    $('#tutor_img').width(w*scale);
-    $('#tutor_img').height(h*scale);
+    img.width(w*scale);
+    img.height(h*scale);
 }
 
 function readURL(input) {
@@ -88,10 +95,13 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#tutor_img').attr('src', e.target.result);
+            var img = $('#tutor_img');
+            img.attr('src', e.target.result);
+
             imageAutoScale();
-            $('#tutor_img').draggable();
-            $('#tutor_img').css('cursor', 'all-scroll');
+
+            img.draggable();
+            img.css('cursor', 'all-scroll');
         };
 
         reader.readAsDataURL(file);
