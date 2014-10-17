@@ -1,3 +1,5 @@
+Parse.initialize("Kvu5Qc0FxyInpHkrC3CbKedUTJCoiU6SfgZM7nYg", "OS9SZmaeSg00MI629udNTGmwPqOnOPtxuhXBHZ8G");
+
 function escapeWhiteChars(string) {
     return string.replace(/  /g, '&nbsp; ').replace(/\n/g, '<br/>');
 }
@@ -108,20 +110,59 @@ function readURL(input) {
     }
 }
 
+Parse.initialize("Kvu5Qc0FxyInpHkrC3CbKedUTJCoiU6SfgZM7nYg", "OS9SZmaeSg00MI629udNTGmwPqOnOPtxuhXBHZ8G");
+
 function generateImage() {
 
     html2canvas($('#main_quote_container').get(0), {
         onrendered: function(canvas) {
 //            $('#output_image').append(canvas);
             var image = canvas.toDataURL("image/png");//.replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            var filename = randomString(14) + '.png';
+
             $('#image_download').attr('href', image);
-            $('#image_download').attr('download', "quote.png");
+            $('#image_download').attr('download', filename);
             $('#image_download').get(0).click();
+
+            var base64 = dataURItoBase64Str(image);
+            var file = new Parse.File(filename, {base64: base64});
+            file.save().then(function() {
+                // The file has been saved to Parse.
+            }, function(error) {
+                // The file either could not be read, or could not be saved to Parse.
+            });
+
+            var quoteObject = new Parse.Object("Quote");
+            var quoteQuoteText = $('#quote_quote_text');
+            quoteObject.set("quote_text", quoteQuoteText.html());
+            quoteObject.set("quote_font_size", quoteQuoteText.css('font-size'));
+            quoteObject.set("tutor", $('#quote_tutorname_text').html());
+            quoteObject.set("faculty", $('#quote_faculty_text').html());
+            quoteObject.set("imageFile", file);
+            quoteObject.save();
         }
 //        ,
 //        width: 800,
 //        height: 400
     });
+}
+
+function dataURItoBase64Str(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var base64String;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+        base64String = dataURI.split(',')[1];
+        return base64String;
+    } else {
+        return "";
+    }
+}
+
+function randomString(length) {
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
 }
 
 
