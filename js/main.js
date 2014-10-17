@@ -116,9 +116,8 @@ function generateImage() {
 
     html2canvas($('#main_quote_container').get(0), {
         onrendered: function(canvas) {
-//            $('#output_image').append(canvas);
-            var image = canvas.toDataURL("image/png");//.replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-            var filename = randomString(14) + '.png';
+            var image = canvas.toDataURL("image/jpeg");//.replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            var filename = randomString(14) + '.jpg';
 
             $('#image_download').attr('href', image);
             $('#image_download').attr('download', filename);
