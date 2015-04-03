@@ -1,3 +1,3 @@
-# [Quote Generator](http://drimacus182.github.io/kpi_quote)
+# [KPI quote generator](http://drimacus182.github.io/kpi_quote)
 
-This is a simple image generator for [#KPIquote](http://vk.com/kpi_quote)
+Simple image generator for [#KPIquote](http://vk.com/kpi_quote) public
