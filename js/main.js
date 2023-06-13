@@ -1,4 +1,3 @@
-Parse.initialize("Kvu5Qc0FxyInpHkrC3CbKedUTJCoiU6SfgZM7nYg", "OS9SZmaeSg00MI629udNTGmwPqOnOPtxuhXBHZ8G");
 
 function escapeWhiteChars(string) {
     return string.replace(/  /g, '&nbsp; ').replace(/\n/g, '<br/>');
@@ -110,8 +109,6 @@ function readURL(input) {
     }
 }
 
-Parse.initialize("Kvu5Qc0FxyInpHkrC3CbKedUTJCoiU6SfgZM7nYg", "OS9SZmaeSg00MI629udNTGmwPqOnOPtxuhXBHZ8G");
-
 function generateImage() {
 
     html2canvas($('#main_quote_container').get(0), {
@@ -122,23 +119,6 @@ function generateImage() {
             $('#image_download').attr('href', image);
             $('#image_download').attr('download', filename);
             $('#image_download').get(0).click();
-
-            var base64 = dataURItoBase64Str(image);
-            var file = new Parse.File(filename, {base64: base64});
-            file.save().then(function() {
-                // The file has been saved to Parse.
-            }, function(error) {
-                // The file either could not be read, or could not be saved to Parse.
-            });
-
-            var quoteObject = new Parse.Object("Quote");
-            var quoteQuoteText = $('#quote_quote_text');
-            quoteObject.set("quote_text", quoteQuoteText.html());
-            quoteObject.set("quote_font_size", quoteQuoteText.css('font-size'));
-            quoteObject.set("tutor", $('#quote_tutorname_text').html());
-            quoteObject.set("faculty", $('#quote_faculty_text').html());
-            quoteObject.set("imageFile", file);
-            quoteObject.save();
         }
 //        ,
 //        width: 800,
